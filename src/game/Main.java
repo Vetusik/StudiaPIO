@@ -7,7 +7,7 @@ public class Main {
 	public static void main(String[] args) {
 
 		Random rand = new Random();
-		Player gracz = new Player(null);
+		Player gracz = new Player("Adam");
 
 		int x, y;
 

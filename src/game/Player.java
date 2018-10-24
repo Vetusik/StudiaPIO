@@ -5,6 +5,7 @@ import java.util.Random;
 public class Player {
 
 	private String name = "Janusz";
+	Random rand = new Random();
 
 	Player() {
 	}
@@ -25,7 +26,6 @@ public class Player {
 	}
 
 	public int guess() {
-		Random rand = new Random();
 		int y = rand.nextInt(6) + 1;
 		return y;
 	}
