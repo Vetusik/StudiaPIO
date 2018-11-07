@@ -17,10 +17,11 @@ public abstract class Player {
 	}
 
 	public void setName(String name) {
-		if (name != null && !name.isEmpty())
+		
+		if (name != null && name.matches("^[a-zA-Z][a-zA-Z\\d@\\-_.]{2,30}$"))
 			this.name = name;
 		else
-			System.err.println("Wrong name!");
+		    throw new IllegalArgumentException("Nieprawid³owe imie");
 	}
 
 	abstract int guess();
