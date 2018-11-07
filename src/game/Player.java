@@ -1,11 +1,9 @@
 package game;
 
-import java.util.Random;
+public abstract class Player {
 
-public class Player {
-
-	private String name = "Janusz";
-	Random rand = new Random();
+	private String name = "DefaultJanusz";
+	
 
 	Player() {
 	}
@@ -25,8 +23,6 @@ public class Player {
 			System.err.println("Wrong name!");
 	}
 
-	public int guess() {
-		int y = rand.nextInt(6) + 1;
-		return y;
-	}
+	abstract int guess();
+	
 }
