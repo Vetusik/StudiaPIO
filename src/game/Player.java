@@ -21,7 +21,7 @@ public abstract class Player {
 		if (name != null && name.matches("^[a-zA-Z][a-zA-Z\\d@\\-_.]{2,30}$"))
 			this.name = name;
 		else
-		    throw new IllegalArgumentException("Nieprawid³owe imie");
+		    throw new IllegalArgumentException("This name does not match the pattern\n");
 	}
 
 	abstract int guess();

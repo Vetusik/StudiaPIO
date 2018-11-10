@@ -11,24 +11,24 @@ public class Main {
 		
 		
 		try {
-			gracz.setName("olek");
+			gracz.setName("Mikolaj");
 		}
 		catch(IllegalArgumentException e){
-			System.err.println("Wrong name! " + e.getMessage());
+			System.err.println("Error! --> " + e.getMessage());
 		}
 		
 
 		int x, y;
 		
 		x = rand.nextInt(6) + 1;
-		System.out.println("Liczba do zgadniecia: " + x);
 		
 		while (true) {
 			
+			System.out.println("Rolled number: " + x);
 			y = gracz.guess();
-			System.out.println("Zgaduje, ze to... " + y);
+			System.out.println("Player guess: " + y);
 			if (y == x) {
-				System.out.println("Brawo, " + gracz.getName()+ "\n");
+				System.out.println("Well done, " + gracz.getName()+ "\n");
 				break;
 			} else {
 				System.out.println("Guess again!\n");

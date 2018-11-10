@@ -18,7 +18,7 @@ public class PlayerHuman extends Player{
 
 	@Override
 	int guess() {
-		 System.out.println("Podaj liczbê: ");
+		 System.out.println("Give number: ");
 	     return kb.nextInt();
 	}
 
