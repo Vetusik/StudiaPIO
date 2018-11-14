@@ -1,39 +1,34 @@
 package game;
 
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
 	public static void main(String[] args) {
 
-		Random rand = new Random();
-		Player gracz = new PlayerComp();
+	//	Game game = new Game();
+	//	Player player = new PlayerComp();
+	//	game.addPlayer(player);
+	//	game.play();
 		
 		
-		try {
-			gracz.setName("Mikolaj");
+		List list = new ArrayList();
+		
+		list.add("raz");
+		list.add("dwa");
+		list.add("trzy");
+		
+		//System.out.println(list);
+		
+		for(int i  = 0; i<list.size(); i++ )
+		{
+			System.out.println(list.get(i));
 		}
-		catch(IllegalArgumentException e){
-			System.err.println("Error! --> " + e.getMessage());
+		
+		for(Object o : list) {
+			System.out.println(o);
 		}
 		
-
-		int x, y;
-		
-		x = rand.nextInt(6) + 1;
-		
-		while (true) {
-			
-			System.out.println("Rolled number: " + x);
-			y = gracz.guess();
-			System.out.println("Player guess: " + y);
-			if (y == x) {
-				System.out.println("Well done, " + gracz.getName()+ "\n");
-				break;
-			} else {
-				System.out.println("Guess again!\n");
-			}
-		}
 	}
-
 }
