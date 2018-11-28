@@ -11,23 +11,17 @@ public class Game {
     protected List<Player> players = new ArrayList();
     
 //-----------------------------------------------------------------------------------------	
-	public void addPlayer(Player player)
-	{
-		
-		if (player != null) {
-			if(!isNameExists(player.getName())) {
+	public void addPlayer(Player player) {
+		if (!player.equals(null)) {
+			if (!isNameExists(player.getName())) {
 				players.add(player);
-				}
-			else {
+			} else {
 				player.setName(player.getName() + rand.nextInt(10));
-				players.add(player);
-					
+				addPlayer(player);
 			}
-			}
-			
-		else
-		    throw new IllegalArgumentException("Player cannot be null\n");
-
+		} else {
+			throw new IllegalArgumentException("Player couldn't be added to the list.");
+		}
 	}
 //--------------------------------------------------------------------------------------	
 	private boolean isNameExists(String name)
@@ -43,10 +37,12 @@ public class Game {
 //----------------------------------------------------------------------------------------	
 	public void removePlayer(String name) {
 		
-		for(Player player : players) {
-			if(player.getName().equals(name)) {
-			players.remove(player);
-			break;}
+		Iterator<Player> it = players.iterator();
+		while (it.hasNext()) {
+			if ( it.next().getName().equals(name)) {
+				it.remove();
+				break;
+			}
 		}
 		
 	}
@@ -61,17 +57,18 @@ public class Game {
 		
 		do {	
 			oneMore = true;
+			System.out.println("---------------------------------------------------------");
 			System.out.println("Rolled number: " + x);
 			
 			for(Player player : players) {
 			y = player.guess();
-			System.out.println("Player guess: " + y);
+			System.out.println(player.getName() + " guess: " + y);
 			
 			if (y == x) {
-				System.out.println(player.getName() + ", well done,\n");
+				System.out.println("Well done!\n");
 				oneMore = false;
 			} else {
-				System.out.println(player.getName() + ", guess again!\n");
+				System.out.println("Guess again!\n");
 			}
 			}
 		}while(oneMore);
