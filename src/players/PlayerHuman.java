@@ -1,4 +1,4 @@
-package game;
+package players;
 
 import java.util.Scanner;
 
@@ -17,7 +17,7 @@ public class PlayerHuman extends Player{
 	}
 
 	@Override
-	int guess() {
+	public int guess() {
 		 System.out.println("Give number: ");
 	     return kb.nextInt();
 	}

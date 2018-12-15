@@ -1,4 +1,4 @@
-package game;
+package players;
 
 public abstract class Player {
 
@@ -24,6 +24,6 @@ public abstract class Player {
 		    throw new IllegalArgumentException("This name does not match the pattern\n");
 	}
 
-	abstract int guess();
+	public abstract int guess();
 	
 }

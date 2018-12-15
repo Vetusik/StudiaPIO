@@ -1,14 +1,31 @@
 package game;
 
+import players.PlayerComp;
+import statistics.Statistics;
+import statistics.WinStatistics;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import players.Player;
+import statistics.NullStatistics;
+import statistics.Statistics;
+
 public class Game {
 
 	protected Random rand = new Random();
     protected List<Player> players = new ArrayList();
+    protected Statistics stats;
+    
+    public Game() {
+        this.stats = new NullStatistics();
+    }
+     
+    public Game(Statistics stats) {
+        this.stats = stats;
+    }
     
 //-----------------------------------------------------------------------------------------	
 	public void addPlayer(Player player) {
@@ -46,7 +63,14 @@ public class Game {
 		}
 		
 	}
-//---------------------------------------------------------------------------------------		
+//---------------------------------------------------------------------------------------	
+    public void printPlayers() {
+        for (Player player : players) {
+            System.out.println(player.getName());
+        }
+    }
+    
+ //---------------------------------------------------------------------------------------	 
 	public void play()
 	{		
 		
@@ -67,6 +91,7 @@ public class Game {
 			if (y == x) {
 				System.out.println("Well done!\n");
 				oneMore = false;
+				stats.andTheWinnerIs(player.getName()); // doliczenie punktu
 			} else {
 				System.out.println("Guess again!\n");
 			}
@@ -75,17 +100,3 @@ public class Game {
 		
 	}
 }
-
-
-
-
-
-//try {
-//player.setName("Mikolaj");
-//}
-//catch(IllegalArgumentException e){
-//System.err.println("Error! --> " + e.getMessage());
-//}
-//catch(Exception e) {
-//System.err.println("An unknown error ocurred!");
-//}
